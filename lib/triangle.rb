@@ -12,7 +12,7 @@ class Triangle
   end
 
   def kind
-    if(negative? == true || valid? == false)
+    if(valid_numbers? == false || valid_format? == false)
       raise TriangleError
     elsif(equilateral?)
       :equilateral
@@ -23,10 +23,10 @@ class Triangle
     end
   end
 
-  def negative?
+  def valid_numbers?
     @sides.each do |s|
       if s.negative? || s == 0
-        true
+        false
       end
     end
   end
@@ -43,7 +43,7 @@ class Triangle
     (@s2 == @s3) || (@s1 == @s2) || (@s1 = @s3)
   end
 
-  def valid?
+  def valid_format?
     (@s1 + @s2 > @s3) && (@s2 + @s3 > @s1) && (@s1 + @s3 > @s2)
   end
 
