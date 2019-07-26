@@ -1,11 +1,13 @@
 class Triangle
   # write code here
 
-  attr_accessor :side1, :side2, :side3
+  attr_accessor :s1, :s2, :s3
   @sides = []
 
-  def initialize(side1, side2, side3)
-    @side1, @side2, @side3 = side1, side2, side3
+  def initialize(s1, s2, s3)
+    @s1 = s1
+    @s2 = s2
+    @s3 = s3
     @sides = [side1, side2, side3]
   end
 
@@ -22,27 +24,27 @@ class Triangle
   end
 
   def negative?
-    @sides.each do |length|
-      if(length <= 0)
-        return true
+    @sides.each do |s|
+      if(s <= 0)
+        true
       end
     end
   end
 
   def equilateral?
-    (@side1 == @side2) && (@side1 == @side3)
+    (@s1 == @s2) && (@s1 == @s3)
   end
 
   def scalene?
-    (@side1 != @side2) && (@side1!= @side3) && (@side2 != @side3)
+    (@s1 != @s2) && (@s1!= @s3) && (@s2 != @s3)
   end
 
   def isosceles?
-    (@side2 == @side3) || (@side1 == @side2) || (@side1 = @side3)
+    (@s2 == @s3) || (@s1 == @s2) || (@s1 = @s3)
   end
 
   def valid?
-    (@side1 + @side2 > @side3) && (@side2 + @side3 > @side1) && (@side1 + @side3 > @side2)
+    (@s1 + @s2 > @side3) && (@s2 + @s3 > @s1) && (@s1 + @s3 > @s2)
   end
 
   class TriangleError < StandardError
